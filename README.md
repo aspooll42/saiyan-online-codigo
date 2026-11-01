@@ -1,4 +1,4 @@
-# Saiyan Online — trabajo completo (privado)
+# Saiyan Online — trabajo completo
 
 Todo el trabajo del port: binarios originales del cliente de Mac (`original/`, sin `resources/coffre`),
 DLL extraídas (`extraido/`), código descompilado y corregido (`descompilado/`), scripts y proyecto Android.
