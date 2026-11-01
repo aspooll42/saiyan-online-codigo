@@ -1,0 +1,10 @@
+{
+  "_commentaire": "Reglages client par defaut, copies dans le fichier de preferences d'un joueur a sa toute premiere ouverture du jeu (et jamais apres : un joueur qui a deja un fichier garde ses choix). Les valeurs sont des chaines True/False, comme dans le fichier de preferences. Les noms des joueurs comme des PNJ n'apparaissent qu'au survol de la souris. Chaque option reste modifiable par le joueur dans les reglages.",
+
+  "MyOverheadInfo": "False",
+  "PlayerOverheadInfo": "False",
+  "PartyMemberOverheadInfo": "False",
+  "FriendOverheadInfo": "False",
+  "GuildMemberOverheadInfo": "False",
+  "NpcOverheadInfo": "False"
+}

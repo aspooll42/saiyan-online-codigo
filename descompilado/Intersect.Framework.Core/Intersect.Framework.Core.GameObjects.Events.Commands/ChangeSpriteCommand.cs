@@ -1,0 +1,8 @@
+namespace Intersect.Framework.Core.GameObjects.Events.Commands;
+
+public class ChangeSpriteCommand : EventCommand
+{
+	public override EventCommandType Type { get; } = EventCommandType.ChangeSprite;
+
+	public string Sprite { get; set; } = string.Empty;
+}

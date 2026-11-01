@@ -1,0 +1,36 @@
+namespace Intersect.Framework.Core.GameObjects.Housing;
+
+public enum HouseResult : byte
+{
+	Bought,
+	NotEnoughZeni,
+	TerrainTaken,
+	AlreadyOwner,
+	TooFar,
+	DoesNotFit,
+	InvalidTerrain,
+	Locked,
+	FriendsOnly,
+	Knocked,
+	OwnerAway,
+	NobodyAnswers,
+	DoorOpened,
+	ShownOut,
+	AccessSaved,
+	FurnitureRefused,
+	FurnitureLimit,
+	InventoryFull,
+	ChestNotEmpty,
+	NotYourHouse,
+	CannotDecorate,
+	Slept,
+	StoredAll,
+	Sold,
+	SellNeedsSpace,
+	Upgraded,
+	UpgradeNeedsSpace,
+	UpgradeChestBlocked,
+	CannotUpgrade,
+	Folded,
+	FoldedDoesNotFit
+}

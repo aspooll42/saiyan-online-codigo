@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Intersect Client</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Intersect.Client.intersect-logo-qu.ico" />
+    <None Remove="Icon.bmp" />
+    <EmbeddedResource Include="Intersect.Client.intersect-logo-qu.ico" LogicalName="Intersect.Client.intersect-logo-qu.ico" />
+    <EmbeddedResource Include="Icon.bmp" LogicalName="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Intersect.Framework">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect Client Core">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect Client Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

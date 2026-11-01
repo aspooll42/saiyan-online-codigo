@@ -1,0 +1,23 @@
+using System;
+using Intersect.Framework.Core.GameObjects.Items;
+using MessagePack;
+
+namespace Intersect.Network.Packets.Server;
+
+[MessagePackObject(false)]
+public class TradeUpdatePacket : InventoryUpdatePacket
+{
+	[Key(6)]
+	public Guid TraderId { get; set; }
+
+	public TradeUpdatePacket()
+		: base(0, Guid.Empty, 0, null, null)
+	{
+	}
+
+	public TradeUpdatePacket(Guid traderId, int slot, Guid id, int quantity, Guid? bagId, ItemProperties properties)
+		: base(slot, id, quantity, bagId, properties)
+	{
+		TraderId = traderId;
+	}
+}

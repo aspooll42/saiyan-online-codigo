@@ -1,0 +1,15 @@
+# Repositorio privado con todo el trabajo. Fuera solo lo regenerable o lo que no debe subirse nunca.
+# Firma de publicación: NUNCA se sube.
+publicar/firma/
+# Ya están en la release pública (v0.1.0) o se regeneran.
+publicar/*.zip
+publicar/*.apk
+original/resources/coffre/
+ejecutable/
+# El repositorio público vive aparte.
+repos/
+logs/
+bin/
+obj/
+*.log
+.DS_Store

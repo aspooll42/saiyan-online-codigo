@@ -1,0 +1,93 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Cliente de Saiyan Online para Android: compila las fuentes descompiladas de
+       "Intersect Client Core" contra MonoGame Android y reutiliza el resto de
+       librerías (.NET 8 puras) tal como vienen en el juego. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <ApplicationId>com.saiyanonline.android</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>0.8.0</ApplicationDisplayVersion>
+    <AssemblyName>Intersect Client Core</AssemblyName>
+    <RootNamespace>SaiyanAndroid</RootNamespace>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoWarn>$(NoWarn);CS0108;CS0114;CS0162;CS0168;CS0169;CS0219;CS0414;CS0618;CS0649;CS1998;CS8981;CA1416;XA1031</NoWarn>
+    <AndroidSdkDirectory>$(HOME)/Library/Android/sdk</AndroidSdkDirectory>
+    <JavaSdkDirectory>/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home</JavaSdkDirectory>
+    <Fuentes>$(MSBuildThisFileDirectory)../../descompilado/Intersect_Client_Core/</Fuentes>
+    <!-- Sin recorte: el juego usa mucha reflexión (MessagePack, Ceras, Newtonsoft). -->
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <PublishTrimmed>false</PublishTrimmed>
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <RuntimeIdentifiers>android-arm64;android-x64</RuntimeIdentifiers>
+    <Extraido>$(MSBuildThisFileDirectory)../../extraido/</Extraido>
+  </PropertyGroup>
+
+  <!-- Firma de publicación (publicar/firma no se sube a ningún sitio: sin esa clave no se pueden publicar actualizaciones). -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' And Exists('$(MSBuildThisFileDirectory)../../publicar/firma/saiyan-release.keystore')">
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>$(MSBuildThisFileDirectory)../../publicar/firma/saiyan-release.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyAlias>saiyan</AndroidSigningKeyAlias>
+    <AndroidSigningStorePass>file:$(MSBuildThisFileDirectory)../../publicar/firma/clave.txt</AndroidSigningStorePass>
+    <AndroidSigningKeyPass>file:$(MSBuildThisFileDirectory)../../publicar/firma/clave.txt</AndroidSigningKeyPass>
+    <AndroidPackageFormats>aab;apk</AndroidPackageFormats>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>0.1.0</ApplicationDisplayVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Android" Version="3.8.2.1105" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(Fuentes)**/*.cs" Exclude="$(Fuentes)bin/**;$(Fuentes)obj/**" LinkBase="Juego" />
+    <EmbeddedResource Include="$(Fuentes)Intersect.Client.network.handshake.bkey.pub" LogicalName="Intersect.Client.network.handshake.bkey.pub" />
+    <EmbeddedResource Include="$(Fuentes)Intersect.Client.Resources.Shaders.radialgradient.xnb" LogicalName="Intersect.Client.Resources.Shaders.radialgradient.xnb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Configuración del juego (el coffre de 595 MB va aparte). -->
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)Recursos/config.json" Link="Assets/resources/config.json" />
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)Recursos/descarga.txt" Link="Assets/resources/descarga.txt" />
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)../../original/resources/default_settings.json" Link="Assets/resources/default_settings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="$(MSBuildThisFileDirectory)../../descompilado/Intersect.Client.Framework/bin/Release/net8.0/Intersect.Client.Framework.dll" />
+    <Reference Include="$(MSBuildThisFileDirectory)../../descompilado/Intersect.Framework.Core/bin/Release/net8.0/Intersect.Framework.Core.dll" />
+    <Reference Include="$(MSBuildThisFileDirectory)../../descompilado/Intersect.Framework/bin/Release/net8.0/Intersect.Framework.dll" />
+    <Reference Include="$(MSBuildThisFileDirectory)../../descompilado/Intersect_Core/bin/Release/net8.0/Intersect Core.dll" />
+    <Reference Include="$(MSBuildThisFileDirectory)../../descompilado/Intersect.Network/bin/Release/net8.0/Intersect.Network.dll" />
+    <Reference Include="$(Extraido)Intersect.Rsa.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Reference Include="$(Extraido)Newtonsoft.Json.dll" />
+    <Reference Include="$(Extraido)NVorbis.dll" />
+    <Reference Include="$(Extraido)CommandLine.dll" />
+    <Reference Include="$(Extraido)Serilog.dll" />
+    <Reference Include="$(Extraido)Serilog.Extensions.Logging.dll" />
+    <!-- Dependencias indirectas que MSBuild no copia solo. -->
+    <Reference Include="$(Extraido)Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Caching.Abstractions.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Caching.Memory.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Configuration.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Configuration.Binder.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Logging.Configuration.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Logging.Console.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Logging.Debug.dll" />
+    <Reference Include="$(Extraido)Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    <Reference Include="$(Extraido)Serilog.Sinks.Debug.dll" />
+    <Reference Include="$(Extraido)System.Collections.Immutable.dll" />
+    <Reference Include="$(Extraido)System.Diagnostics.DiagnosticSource.dll" />
+    <Reference Include="$(Extraido)System.IO.Abstractions.dll" />
+    <Reference Include="$(Extraido)System.Interactive.Async.dll" />
+    <Reference Include="$(Extraido)System.Linq.Async.dll" />
+    <Reference Include="$(Extraido)System.Text.Encodings.Web.dll" />
+    <Reference Include="$(Extraido)TestableIO.System.IO.Abstractions.dll" />
+  </ItemGroup>
+</Project>

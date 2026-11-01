@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Intersect Core</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Intersect.intersect-logo-qu.ico" />
+    <EmbeddedResource Include="Intersect.intersect-logo-qu.ico" LogicalName="Intersect.intersect-logo-qu.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect.Framework.Core">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NCalc">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/NCalc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Diagnostics.Runtime">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Microsoft.Diagnostics.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Validation">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Microsoft.VisualStudio.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="CommandLine">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Extensions.Logging">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack.Annotations">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/MessagePack.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Ceras">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Ceras.dll</HintPath>
+    </Reference>
+    <Reference Include="Semver">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Semver.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect.Framework">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/MathNet.Numerics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

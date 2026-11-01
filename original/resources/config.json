@@ -1,0 +1,51 @@
+{
+  "Host": "jeu.saiyanonline.com",
+  "Port": 5400,
+  "GameFont": "rajdhanibold",
+  "EntityNameFont": "sairanom,12",
+  "ChatBubbleFont": "chakrapetchmedium,11",
+  "ActionMsgFont": "rajdhanibold,13",
+  "UIFont": "rajdhanisemibold,12",
+  "ChatLines": 100,
+  "MenuMusic": "maou_theme14.ogg",
+  "MenuBackground": [
+    "background.png"
+  ],
+  "MenuBackgroundDisplayMode": "Cover",
+  "MenuBackgroundFrameInterval": 50,
+  "IntroImages": [],
+  "UpdateUrl": "https://maj.saiyanonline.com/client/update-mac.json",
+  "MouseCursor": null,
+  "MusicFadeTimer": 1500,
+  "FadeDurationMs": 500.0,
+  "EnableContextMenus": true,
+  "EnableZebraStripedRows": true,
+  "UiSkin": "IntersectSkin",
+  "EntityBarDirections": [
+    "StartToEnd",
+    "StartToEnd",
+    "StartToEnd"
+  ],
+  "TypewriterEnabled": true,
+  "TypewriterFullStops": [
+    ".",
+    "!",
+    "?",
+    ":"
+  ],
+  "TypewriterFullStopDelay": 400,
+  "TypewriterPartDelay": 6,
+  "TypewriterPauses": [
+    ",",
+    ";",
+    "-"
+  ],
+  "TypewriterPauseDelay": 80,
+  "TypewriterResponseDelay": 600,
+  "TypewriterSoundFrequency": 5,
+  "TypewriterSounds": [
+    "octave-beep-tapped.wav",
+    "dialogue_tic.wav"
+  ],
+  "DimmedEventWindowBackground": true
+}

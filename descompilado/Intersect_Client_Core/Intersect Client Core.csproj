@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Intersect Client Core</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Intersect.Client.intersect-logo-qu.ico" />
+    <None Remove="Intersect.Client.network.handshake.bkey.pub" />
+    <None Remove="Intersect.Client.Resources.MonoGame.Framework.dll.config" />
+    <None Remove="Intersect.Client.Resources.openal32.dll" />
+    <None Remove="Intersect.Client.Resources.MonoGame.Framework.dll" />
+    <None Remove="Intersect.Client.Resources.x64.soft_oal.dll" />
+    <None Remove="Intersect.Client.Resources.x64.SDL2.dll" />
+    <None Remove="Intersect.Client.Resources.Shaders.radialgradient.xnb" />
+    <None Remove="Intersect.Client.Resources.libopenal.so.1" />
+    <None Remove="Intersect.Client.Resources.libopenal.1.dylib" />
+    <None Remove="Intersect.Client.Resources.libSDL2.dylib" />
+    <None Remove="Intersect.Client.Resources.libSDL2-2.0.so.0" />
+    <EmbeddedResource Include="Intersect.Client.intersect-logo-qu.ico" LogicalName="Intersect.Client.intersect-logo-qu.ico" />
+    <EmbeddedResource Include="Intersect.Client.network.handshake.bkey.pub" LogicalName="Intersect.Client.network.handshake.bkey.pub" />
+    <EmbeddedResource Include="Intersect.Client.Resources.MonoGame.Framework.dll.config" LogicalName="Intersect.Client.Resources.MonoGame.Framework.dll.config" />
+    <EmbeddedResource Include="Intersect.Client.Resources.openal32.dll" LogicalName="Intersect.Client.Resources.openal32.dll" />
+    <EmbeddedResource Include="Intersect.Client.Resources.MonoGame.Framework.dll" LogicalName="Intersect.Client.Resources.MonoGame.Framework.dll" />
+    <EmbeddedResource Include="Intersect.Client.Resources.x64.soft_oal.dll" LogicalName="Intersect.Client.Resources.x64.soft_oal.dll" />
+    <EmbeddedResource Include="Intersect.Client.Resources.x64.SDL2.dll" LogicalName="Intersect.Client.Resources.x64.SDL2.dll" />
+    <EmbeddedResource Include="Intersect.Client.Resources.Shaders.radialgradient.xnb" LogicalName="Intersect.Client.Resources.Shaders.radialgradient.xnb" />
+    <EmbeddedResource Include="Intersect.Client.Resources.libopenal.so.1" LogicalName="Intersect.Client.Resources.libopenal.so.1" />
+    <EmbeddedResource Include="Intersect.Client.Resources.libopenal.1.dylib" LogicalName="Intersect.Client.Resources.libopenal.1.dylib" />
+    <EmbeddedResource Include="Intersect.Client.Resources.libSDL2.dylib" LogicalName="Intersect.Client.Resources.libSDL2.dylib" />
+    <EmbeddedResource Include="Intersect.Client.Resources.libSDL2-2.0.so.0" LogicalName="Intersect.Client.Resources.libSDL2-2.0.so.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Intersect.Client.Framework">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Client.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect.Framework.Core">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Steamworks.NET">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Steamworks.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect Core">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect.Framework">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect.Rsa">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Rsa.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/NVorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="CommandLine">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect.Network">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Extensions.Logging">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.Extensions.Logging.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

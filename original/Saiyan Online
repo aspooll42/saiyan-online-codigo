@@ -1,0 +1,8 @@
+#!/bin/bash
+# Saiyan Online pour Mac : lance la version du jeu qui correspond au processeur (puce Apple ou Intel).
+cd "$(dirname "$0")" || exit 1
+if [ "$(uname -m)" = "arm64" ]; then
+  exec ./jeu-apple "$@"
+else
+  exec ./jeu-intel "$@"
+fi

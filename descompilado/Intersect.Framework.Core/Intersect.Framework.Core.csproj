@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Intersect.Framework.Core</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Intersect.Framework.Core.intersect-logo-qu.ico" />
+    <EmbeddedResource Include="Intersect.Framework.Core.intersect-logo-qu.ico" LogicalName="Intersect.Framework.Core.intersect-logo-qu.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MessagePack.Annotations">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/MessagePack.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersect.Framework">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Intersect.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Semver">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Semver.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Ceras">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Ceras.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Testably.Abstractions.FileSystem.Interface">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Testably.Abstractions.FileSystem.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="NCalc">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/NCalc.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Hashing">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/System.IO.Hashing.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="TestableIO.System.IO.Abstractions.Wrappers">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/TestableIO.System.IO.Abstractions.Wrappers.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Extensions.Logging">
+      <HintPath>$(MSBuildThisFileDirectory)../../extraido/Serilog.Extensions.Logging.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

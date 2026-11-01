@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="FoundPluginEntryTypeMissingDefaultConstructor" xml:space="preserve"><value>Plugin entry type found in the assembly does not have a generic constructor.</value></data>
+  <data name="MissingPluginAssembly" xml:space="preserve"><value>No plugin assembly was found for the provided path.</value></data>
+  <data name="MissingPluginEntryExceptionAssemblyName" xml:space="preserve"><value>Unable to find a plugin entry type in:</value></data>
+  <data name="MissingPluginEntryExceptionDefault" xml:space="preserve"><value>Unable to find a plugin entry type in the assembly.</value></data>
+  <data name="SwallowingExceptionFromWithQualifiedName" xml:space="preserve"><value>Swallowing unexpected exception from {0}.{1}.</value></data>
+  <data name="PluginBootstrapContextMissingPluginArgument" xml:space="preserve"><value>PluginBootstrap factory needs at lease one non-null argument of type '{0}'.</value></data>
+  <data name="SwallowingExceptionFrom" xml:space="preserve"><value>Swallowing unexpected exception from {0}.</value></data>
+  </root>

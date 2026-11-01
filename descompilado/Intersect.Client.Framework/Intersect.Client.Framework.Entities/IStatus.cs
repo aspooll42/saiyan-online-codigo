@@ -1,0 +1,25 @@
+using System;
+using Intersect.Enums;
+
+namespace Intersect.Client.Framework.Entities;
+
+public interface IStatus
+{
+	string Data { get; set; }
+
+	long[] Shield { get; set; }
+
+	Guid SpellId { get; set; }
+
+	long TimeRecevied { get; set; }
+
+	long TimeRemaining { get; set; }
+
+	long TotalDuration { get; set; }
+
+	SpellEffect Type { get; set; }
+
+	bool IsActive { get; }
+
+	long RemainingMs { get; }
+}
