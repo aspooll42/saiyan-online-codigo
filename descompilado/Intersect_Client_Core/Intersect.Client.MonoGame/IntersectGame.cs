@@ -161,7 +161,15 @@ internal class IntersectGame : Game
 		Globals.ContentManager = new MonoContentManager();
 		Globals.Database = new JsonDatabase();
 		AntiOutils.Verifier();
+#if !ANDROID
 		Globals.Database.LoadPreferences();
+#else
+		Globals.Database.LoadPreferences();
+		if (string.IsNullOrEmpty(Globals.Database.LoadPreference("ModePerformances")))
+		{
+			Globals.Database.ModePerformances = true;
+		}
+#endif
 #if !ANDROID
 		base.Window.IsBorderless = Context.StartupOptions.BorderlessWindow;
 #endif

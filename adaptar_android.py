@@ -195,3 +195,26 @@ if cabecera + cuerpo in s:
 guard("Intersect.Client.Core/Graphics.cs",
       "\t\tif (largeurEcran > 0 && largeurEcran < 1600)\n\t\t{\n\t\t\treturn (float)largeurEcran / 1600f;\n\t\t}",
       "\t\tif (hauteurEcran > 0)\n\t\t{\n\t\t\treturn MathF.Max(1f, (float)hauteurEcran / 600f);\n\t\t}")
+# Android: la hierba pisada recompone una textura de 512x512 en la CPU y la sube a la GPU en cada
+# imagen; en el móvil se recompone 30 veces por segundo y entre medias se dibuja la anterior.
+p = root / "Intersect.Client.Entities/GrassReact.cs"
+s = p.read_text()
+if "_ultimaComposicion" not in s:
+    s = s.replace("\tprivate static long _lastUpdate;\n",
+                  "\tprivate static long _lastUpdate;\n\n#if ANDROID\n\tprivate static long _ultimaComposicion;\n#endif\n", 1)
+    p.write_text(s)
+guard("Intersect.Client.Entities/GrassReact.cs",
+      "\t\t\tResetCells();\n\t\t\tTrackEntities(milliseconds, dt);\n\t\t\tApplyStamps(milliseconds);\n\t\t\tif (CellOrder.Count > 0)\n\t\t\t{\n\t\t\t\tCompose();\n\t\t\t\tDraw();\n\t\t\t}",
+      "\t\t\tif (milliseconds - _ultimaComposicion >= 33)\n\t\t\t{\n"
+      "\t\t\t\tlong dtComposicion = (_ultimaComposicion == 0L) ? 33 : Math.Clamp(milliseconds - _ultimaComposicion, 0L, 50L);\n"
+      "\t\t\t\t_ultimaComposicion = milliseconds;\n"
+      "\t\t\t\tResetCells();\n\t\t\t\tTrackEntities(milliseconds, dtComposicion);\n\t\t\t\tApplyStamps(milliseconds);\n"
+      "\t\t\t\tif (CellOrder.Count > 0)\n\t\t\t\t{\n\t\t\t\t\tCompose();\n\t\t\t\t\tDraw();\n\t\t\t\t}\n\t\t\t}\n"
+      "\t\t\telse if (CellOrder.Count > 0)\n\t\t\t{\n\t\t\t\tDraw();\n\t\t\t}")
+# Android: modo rendimiento (sin la vista suavizada a doble resolución) activado por defecto, salvo
+# que el jugador ya lo haya cambiado en las opciones.
+guard("Intersect.Client.MonoGame/IntersectGame.cs",
+      "\t\tGlobals.Database.LoadPreferences();",
+      "\t\tGlobals.Database.LoadPreferences();\n"
+      "\t\tif (string.IsNullOrEmpty(Globals.Database.LoadPreference(\"ModePerformances\")))\n\t\t{\n"
+      "\t\t\tGlobals.Database.ModePerformances = true;\n\t\t}")

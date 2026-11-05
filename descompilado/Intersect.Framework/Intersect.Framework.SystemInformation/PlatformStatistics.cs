@@ -56,7 +56,14 @@ public class PlatformStatistics
 		{
 			try
 		{
+			try
+		{
 			HardwareInfo = new HardwareInfo();
+		}
+		catch
+		{
+			HardwareInfo = null;
+		}
 		}
 		catch
 		{

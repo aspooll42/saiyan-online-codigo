@@ -156,6 +156,10 @@ public static class GrassReact
 
 	private static long _lastUpdate;
 
+#if ANDROID
+	private static long _ultimaComposicion;
+#endif
+
 	private static MapInstance? _map;
 
 	private static Meteo.Analyse? _analyse;
@@ -197,6 +201,7 @@ public static class GrassReact
 			long milliseconds = Timing.Global.Milliseconds;
 			long dt = ((_lastUpdate == 0L) ? 16 : Math.Clamp(milliseconds - _lastUpdate, 0L, 50L));
 			_lastUpdate = milliseconds;
+#if !ANDROID
 			ResetCells();
 			TrackEntities(milliseconds, dt);
 			ApplyStamps(milliseconds);
@@ -205,6 +210,25 @@ public static class GrassReact
 				Compose();
 				Draw();
 			}
+#else
+			if (milliseconds - _ultimaComposicion >= 33)
+			{
+				long dtComposicion = (_ultimaComposicion == 0L) ? 33 : Math.Clamp(milliseconds - _ultimaComposicion, 0L, 50L);
+				_ultimaComposicion = milliseconds;
+				ResetCells();
+				TrackEntities(milliseconds, dtComposicion);
+				ApplyStamps(milliseconds);
+				if (CellOrder.Count > 0)
+				{
+					Compose();
+					Draw();
+				}
+			}
+			else if (CellOrder.Count > 0)
+			{
+				Draw();
+			}
+#endif
 			ChronoImage.Tour("sol : herbe, cases foulees");
 			DrawBlades(milliseconds);
 			ChronoImage.Tour("sol : herbe, brins arraches");
